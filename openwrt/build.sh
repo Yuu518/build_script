@@ -43,7 +43,7 @@ else
 fi
 
 # github actions - caddy server
-if [ "$(whoami)" = "runner" ] && [ "$git_name" != "private" ]; then
+if [ "$(whoami)" = "runner" ] && [ $git_name != "private" ]; then
     export mirror=http://127.0.0.1:8080
 fi
 
