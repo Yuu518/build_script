@@ -11,14 +11,17 @@ CONFIG_LIBCURL_OPENSSL=y
 
 ### Firewall
 CONFIG_PACKAGE_nat6=y
-CONFIG_PACKAGE_ip6tables-nft=y
-CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
-CONFIG_PACKAGE_iptables-mod-iprange=y
-CONFIG_PACKAGE_iptables-mod-nat-extra=y
-CONFIG_PACKAGE_iptables-mod-socket=y
-CONFIG_PACKAGE_iptables-mod-tproxy=y
-CONFIG_PACKAGE_iptables-nft=y
-CONFIG_PACKAGE_xtables-nft=y
+# CONFIG_PACKAGE_ip6tables-nft is not set
+# CONFIG_PACKAGE_iptables-mod-conntrack-extra is not set
+# CONFIG_PACKAGE_iptables-mod-iprange is not set
+# CONFIG_PACKAGE_iptables-mod-nat-extra is not set
+# CONFIG_PACKAGE_iptables-mod-socket is not set
+# CONFIG_PACKAGE_iptables-mod-tproxy is not set
+# CONFIG_PACKAGE_iptables-nft is not set
+# CONFIG_PACKAGE_libip4tc is not set
+# CONFIG_PACKAGE_libip6tc is not set
+# CONFIG_PACKAGE_xtables-nft is not set
+# CONFIG_PACKAGE_iptables-legacy is not set
 
 # Natflow
 # CONFIG_PACKAGE_natflow is not set
@@ -186,7 +189,6 @@ CONFIG_PACKAGE_kmod-usb-net-rndis=y
 CONFIG_PACKAGE_kmod-usb-net-ipheth=y
 
 ### Kernel Modules
-CONFIG_PACKAGE_kmod-bonding=y
 CONFIG_PACKAGE_kmod-br-netfilter=y
 CONFIG_PACKAGE_kmod-button-hotplug=y
 CONFIG_PACKAGE_kmod-crypto-chacha20poly1305=y
@@ -199,10 +201,10 @@ CONFIG_PACKAGE_kmod-fs-xfs=y
 CONFIG_PACKAGE_kmod-hwmon-pwmfan=y
 CONFIG_PACKAGE_kmod-ikconfig=y
 CONFIG_PACKAGE_kmod-inet-diag=y
-CONFIG_PACKAGE_kmod-ipsec4=y
-CONFIG_PACKAGE_kmod-ipsec6=y
-CONFIG_PACKAGE_kmod-ipt-nat6=y
-CONFIG_PACKAGE_kmod-ipt-tproxy=y
+# CONFIG_PACKAGE_kmod-ipsec4 is not set
+# CONFIG_PACKAGE_kmod-ipsec6 is not set
+# CONFIG_PACKAGE_kmod-ipt-nat6 is not set
+# CONFIG_PACKAGE_kmod-ipt-tproxy is not set
 CONFIG_PACKAGE_kmod-iptunnel6=y
 CONFIG_PACKAGE_kmod-mac80211=y
 CONFIG_PACKAGE_kmod-nf-socket=y
@@ -210,8 +212,8 @@ CONFIG_PACKAGE_kmod-nft-fullcone=y
 CONFIG_PACKAGE_kmod-nft-offload=y
 CONFIG_PACKAGE_kmod-nft-socket=y
 CONFIG_PACKAGE_kmod-nft-tproxy=y
-CONFIG_PACKAGE_kmod-nls-cp936=y
-CONFIG_PACKAGE_kmod-nls-cp950=y
+# CONFIG_PACKAGE_kmod-nls-cp936 is not set
+# CONFIG_PACKAGE_kmod-nls-cp950 is not set
 CONFIG_PACKAGE_kmod-sched-bpf=y
 CONFIG_PACKAGE_kmod-sched-core=y
 CONFIG_PACKAGE_kmod-sched=y
@@ -232,10 +234,10 @@ CONFIG_PACKAGE_kmod-xdp-sockets-diag=y
 CONFIG_PACKAGE_kmod-usb-net-rtl8152-vendor=y
 
 ### Kernel Modules - USB WiFi Adapter
-CONFIG_PACKAGE_kmod-mt7921u=y
-CONFIG_PACKAGE_kmod-rtw88-8812au=y
-CONFIG_PACKAGE_kmod-rtw88-8821au=y
-CONFIG_PACKAGE_kmod-rtw88-8822bu=y
+# CONFIG_PACKAGE_kmod-mt7921u is not set
+# CONFIG_PACKAGE_kmod-rtw88-8812au is not set
+# CONFIG_PACKAGE_kmod-rtw88-8821au is not set
+# CONFIG_PACKAGE_kmod-rtw88-8822bu is not set
 # CONFIG_PACKAGE_kmod-rtl8812au-ct is not set
 
 ### Utilities
@@ -288,19 +290,19 @@ CONFIG_PACKAGE_zip=y
 CONFIG_PACKAGE_zoneinfo-asia=y
 
 ### Shadow Utilities
-CONFIG_PACKAGE_shadow-gpasswd=y
-CONFIG_PACKAGE_shadow-groupadd=y
-CONFIG_PACKAGE_shadow-groupdel=y
-CONFIG_PACKAGE_shadow-groupmod=y
-CONFIG_PACKAGE_shadow-groups=y
-CONFIG_PACKAGE_shadow-login=y
-CONFIG_PACKAGE_shadow-nologin=y
-CONFIG_PACKAGE_shadow-passwd=y
-CONFIG_PACKAGE_shadow-su=y
-CONFIG_PACKAGE_shadow-useradd=y
-CONFIG_PACKAGE_shadow-userdel=y
-CONFIG_PACKAGE_shadow-usermod=y
-CONFIG_PACKAGE_shadow-utils=y
+# CONFIG_PACKAGE_shadow-gpasswd is not set
+# CONFIG_PACKAGE_shadow-groupadd is not set
+# CONFIG_PACKAGE_shadow-groupdel is not set
+# CONFIG_PACKAGE_shadow-groupmod is not set
+# CONFIG_PACKAGE_shadow-groups is not set
+# CONFIG_PACKAGE_shadow-login is not set
+# CONFIG_PACKAGE_shadow-nologin is not set
+# CONFIG_PACKAGE_shadow-passwd is not set
+# CONFIG_PACKAGE_shadow-su is not set
+# CONFIG_PACKAGE_shadow-useradd is not set
+# CONFIG_PACKAGE_shadow-userdel is not set
+# CONFIG_PACKAGE_shadow-usermod is not set
+# CONFIG_PACKAGE_shadow-utils is not set
 # CONFIG_shadow-all is not set
 
 ### GNU Core Utilities
