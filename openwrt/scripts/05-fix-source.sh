@@ -46,7 +46,7 @@ fi
 # fix gcc-15
 if [ "$USE_GCC15" = y ]; then
     # Mbedtls
-    curl -s $mirror/openwrt/patch/openwrt-6.x/gcc-15/mbedtls/901-tests-fix-string-initialization-error-on-gcc15.patch > package/libs/mbedtls/patches/901-tests-fix-string-initialization-error-on-gcc15.patch
+    [ "$version" != "dev" ] && curl -s $mirror/openwrt/patch/openwrt-6.x/gcc-15/mbedtls/901-tests-fix-string-initialization-error-on-gcc15.patch > package/libs/mbedtls/patches/901-tests-fix-string-initialization-error-on-gcc15.patch
     sed -i '/TARGET_CFLAGS/ s/$/ -Wno-error=unterminated-string-initialization/' package/libs/mbedtls/Makefile
     # elfutils
     curl -s $mirror/openwrt/patch/openwrt-6.x/gcc-15/elfutils/901-backends-fix-string-initialization-error-on-gcc15.patch > package/libs/elfutils/patches/901-backends-fix-string-initialization-error-on-gcc15.patch
@@ -144,6 +144,10 @@ curl -s $mirror/openwrt/patch/openwrt-6.x/perf/Makefile > package/devel/perf/Mak
 
 # kselftests-bpf
 curl -s $mirror/openwrt/patch/packages-patches/kselftests-bpf/Makefile > package/devel/kselftests-bpf/Makefile
+
+# sms-tools
+mkdir -p feeds/packages/utils/sms-tool/patches
+curl -s $mirror/openwrt/patch/packages-patches/sms-tools/900-fix-incompatible-pointer-type-error-for-signal-function.patch > feeds/packages/utils/sms-tool/patches/900-fix-incompatible-pointer-type-error-for-signal-function.patch
 
 # bcm53xx
 if [ "$platform" = "bcm53xx" ]; then
