@@ -65,9 +65,6 @@ popd
 # samba4 - bump version
 rm -rf feeds/packages/net/samba4
 git clone https://$github/sbwml/feeds_packages_net_samba4 feeds/packages/net/samba4
-# liburing - 2.7 (samba-4.21.0)
-rm -rf feeds/packages/libs/liburing
-git clone https://$github/sbwml/feeds_packages_libs_liburing feeds/packages/libs/liburing
 # enable multi-channel
 sed -i '/workgroup/a \\n\t## enable multi-channel' feeds/packages/net/samba4/files/smb.conf.template
 sed -i '/enable multi-channel/a \\tserver multi channel support = yes' feeds/packages/net/samba4/files/smb.conf.template
@@ -139,7 +136,7 @@ sed -i 's/services/network/g' feeds/luci/applications/luci-app-nlbwmon/root/usr/
 sed -i 's/services/network/g' feeds/luci/applications/luci-app-nlbwmon/htdocs/luci-static/resources/view/nlbw/config.js
 
 # mentohust
-git clone https://github.com/sbwml/luci-app-mentohust package/new/mentohust
+git clone https://$github/sbwml/luci-app-mentohust package/new/mentohust
 
 # custom packages
 rm -rf feeds/packages/utils/coremark
@@ -162,9 +159,9 @@ sed -i 's,发送,Transmission,g' feeds/luci/applications/luci-app-transmission/p
 sed -i 's,frp 服务器,FRP 服务器,g' feeds/luci/applications/luci-app-frps/po/zh_Hans/frps.po
 sed -i 's,frp 客户端,FRP 客户端,g' feeds/luci/applications/luci-app-frpc/po/zh_Hans/frpc.po
 
-# SQM Translation
-mkdir -p feeds/packages/net/sqm-scripts/patches
-curl -s $mirror/openwrt/patch/sqm/001-help-translation.patch > feeds/packages/net/sqm-scripts/patches/001-help-translation.patch
+# luci-app-sqm
+rm -rf feeds/luci/applications/luci-app-sqm
+git clone https://$gitea/sbwml/luci-app-sqm feeds/luci/applications/luci-app-sqm
 
 # unzip
 rm -rf feeds/packages/utils/unzip

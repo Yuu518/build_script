@@ -21,6 +21,8 @@ curl -s $mirror/openwrt/patch/generic-24.10/0007-include-kernel-add-miss-config-
 curl -s $mirror/openwrt/patch/generic-24.10/0008-meson-add-platform-variable-to-cross-compilation-fil.patch | patch -p1
 curl -s $mirror/openwrt/patch/generic-24.10/0009-kernel-add-legacy-cgroup-v1-memory-controller.patch | patch -p1
 curl -s $mirror/openwrt/patch/generic-24.10/0010-kernel-add-PREEMPT_RT-support-for-aarch64-x86_64.patch | patch -p1
+#curl -s $mirror/openwrt/patch/generic-24.10/0011-tools-squashfs4-enable-zstd-compression-support.patch | patch -p1
+#curl -s $mirror/openwrt/patch/generic-24.10/0012-config-include-image-add-support-for-squashfs-zstd-c.patch | patch -p1
 
 # attr no-mold
 [ "$ENABLE_MOLD" = "y" ] && sed -i '/PKG_BUILD_PARALLEL/aPKG_BUILD_FLAGS:=no-mold' feeds/packages/utils/attr/Makefile
@@ -201,6 +203,12 @@ pushd package/libs/openssl/patches
     curl -sO $mirror/openwrt/patch/openssl/quic/0044-QUIC-Update-metadata-version.patch
 popd
 
+# openssl benchmarks
+pushd package/libs/openssl/patches
+    curl -sO $mirror/openwrt/patch/openssl/901-Revert-speed-Pass-IV-to-EVP_CipherInit_ex-for-evp-ru.patch
+    curl -sO $mirror/openwrt/patch/openssl/902-Revert-apps-speed.c-Fix-the-benchmarking-for-AEAD-ci.patch
+popd
+
 # openssl urandom
 sed -i "/-openwrt/iOPENSSL_OPTIONS += enable-ktls '-DDEVRANDOM=\"\\\\\"/dev/urandom\\\\\"\"\'\n" package/libs/openssl/Makefile
 
@@ -237,7 +245,6 @@ sed -i '/sysctl.d/d' feeds/packages/utils/dockerd/Makefile
 pushd feeds/packages
     curl -s $mirror/openwrt/patch/docker/0001-dockerd-fix-bridge-network.patch | patch -p1
     curl -s $mirror/openwrt/patch/docker/0002-docker-add-buildkit-experimental-support.patch | patch -p1
-    curl -s $mirror/openwrt/patch/docker/0003-dockerd-disable-ip6tables-for-bridge-network-by-defa.patch | patch -p1
 popd
 
 # cgroupfs-mount
@@ -263,8 +270,8 @@ sed -i 's/procd_set_param stderr 1/procd_set_param stderr 0/g' feeds/packages/ut
 
 # UPnP
 rm -rf feeds/{packages/net/miniupnpd,luci/applications/luci-app-upnp}
-git clone https://$gitea/sbwml/miniupnpd feeds/packages/net/miniupnpd -b v2.3.7
-git clone https://$gitea/sbwml/luci-app-upnp feeds/luci/applications/luci-app-upnp -b main
+git clone https://$gitea/sbwml/miniupnpd feeds/packages/net/miniupnpd -b v2.3.9
+git clone https://$gitea/sbwml/luci-app-upnp feeds/luci/applications/luci-app-upnp -b openwrt-24.10
 
 # nginx - latest version
 rm -rf feeds/packages/net/nginx
