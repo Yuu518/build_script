@@ -18,6 +18,9 @@ git clone https://$github/sbwml/wwan-packages package/new/wwan --depth=1
 rm -rf feeds/luci/applications/luci-app-filemanager
 git clone https://$github/sbwml/luci-app-filemanager package/new/luci-app-filemanager
 
+# luci-app-quickfile
+git clone https://$github/sbwml/luci-app-quickfile package/new/quickfile
+
 # luci-app-airplay2
 git clone https://$github/sbwml/luci-app-airplay2 package/new/airplay2
 
@@ -106,6 +109,7 @@ rm -rf feeds/packages/net/{xray-core,v2ray-core,v2ray-geodata,sing-box}
 git clone https://$github/sbwml/openwrt_helloworld package/new/helloworld -b v5
 
 # openlist
+rm -rf feeds/packages/net/openlist feeds/luci/applications/luci-app-openlist
 git clone https://$github/sbwml/luci-app-openlist package/new/openlist --depth=1
 
 # netdata
